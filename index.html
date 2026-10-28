@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System | TaskFlow</title>
+
+    <!-- CSS file connection -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h2>TaskFlow</h2>
+        <button id="logoutBtn" class="hidden">Logout</button>
+    </header>
+
+    <main class="container">
+
+        <!-- Login and Register -->
+        <section id="authSection" class="card auth-card">
+            <h1 id="authTitle">Welcome Back!</h1>
+            <p>Manage your tasks easily.</p>
+
+            <form id="authForm">
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Full Name"
+                    class="hidden"
+                >
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Password (minimum 8 characters)"
+                    minlength="8"
+                    required
+                >
+
+                <button id="authBtn" type="submit">Login</button>
+            </form>
+
+            <p id="authMessage" class="message"></p>
+
+            <p id="switchText">
+                Don't have an account?
+                <a href="#" id="switchAuth">Register</a>
+            </p>
+        </section>
+
+        <!-- Task Dashboard -->
+        <section id="taskSection" class="hidden">
+
+            <div class="welcome">
+                <h1>My Tasks</h1>
+                <p>Plan your day. Complete your goals.</p>
+            </div>
+
+            <!-- Task Statistics -->
+            <div class="stats">
+                <div class="stat card">
+                    <p>Total Tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                </div>
+
+                <div class="stat card">
+                    <p>Pending</p>
+                    <h2 id="pendingTasks">0</h2>
+                </div>
+
+                <div class="stat card">
+                    <p>Completed</p>
+                    <h2 id="completedTasks">0</h2>
+                </div>
+            </div>
+
+            <div class="layout">
+
+                <!-- Create and Update Tasks -->
+                <section class="card">
+                    <h2 id="formTitle">Add New Task</h2>
+
+                    <form id="taskForm">
+                        <label for="taskTitle">Task Title</label>
+                        <input
+                            id="taskTitle"
+                            type="text"
+                            placeholder="Enter task title"
+                            maxlength="150"
+                            required
+                        >
+
+                        <label for="taskDescription">Description</label>
+                        <textarea
+                            id="taskDescription"
+                            placeholder="Enter task description"
+                            maxlength="1000"
+                            rows="4"
+                        ></textarea>
+
+                        <button type="submit" id="saveBtn">
+                            Add Task
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelBtn"
+                            class="secondary hidden"
+                        >
+                            Cancel
+                        </button>
+                    </form>
+
+                    <p id="taskMessage" class="message"></p>
+                </section>
+
+                <!-- Read, Filter and Delete Tasks -->
+                <section class="card">
+                    <div class="list-heading">
+                        <h2>My Task List</h2>
+
+                        <select id="filter">
+                            <option value="All">All Tasks</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div id="taskList"></div>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        TaskFlow &copy; 2026 | Stay Productive
+    </footer>
+
+    <!-- JavaScript file connection -->
+    <script src="./script.js"></script>
+</body>
+</html>
